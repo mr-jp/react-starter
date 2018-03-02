@@ -15,6 +15,7 @@ var config = {
     paths: {
         html: './src/*.html', //match any HTMl file
         js: './src/**/*.js', //match any JS file and subdirectories
+        images: './src/images/*',
         css: [
             'node_modules/bootstrap/dist/css/bootstrap.min.css',
             'node_modules/bootstrap/dist/css/bootstrap-theme.min.css'
@@ -65,6 +66,16 @@ gulp.task('css', function() {
         .pipe(gulp.dest(config.paths.dist + '/css'));
 })
 
+gulp.task('images', function() {
+    gulp.src(config.paths.images)
+        .pipe(gulp.dest(config.paths.dist + '/images'))
+        .pipe(connect.reload());
+    
+    //publish favicon
+    gulp.src('./src/favicon.ico')
+        .pipe(gulp.dest(config.paths.dist));
+})
+
 //Lint JS files
 gulp.task('lint', function() {
     return gulp.src(config.paths.js)
@@ -79,4 +90,4 @@ gulp.task('watch', function() {
 })
 
 //run when using 'gulp' in command line
-gulp.task('default', ['html', 'open', 'watch', 'js', 'css', 'lint']);
+gulp.task('default', ['html', 'open', 'watch', 'js', 'css', 'images', 'lint']);
