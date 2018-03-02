@@ -1,6 +1,15 @@
 # React Starter
 
-Nice environment for JS development
+Nice environment for JS development. Includes:
+
+ - gulp (task automation, build tool)
+ - gulp-connect (run a local dev server)
+ - gulp-open (open URL in a web browser)
+ - browserify (JS bundler)
+ - reactify (transforms JSX to JS)
+ - vinyl-source-stream (use conventional text streams with Gulp)
+ - gulp-concat (concantendate files)
+ - gulp-eslint (Lint JS files, including JSX)
 
 # Install these node packages
     npm install --save gulp
